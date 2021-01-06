@@ -1,0 +1,47 @@
+<div class ="m-content"><h4>{{userDetail.name}}</h4>
+   <form [formGroup]="UserFoodDetails" (ngSubmit)="onSubmit()" novalidate class="m-form">
+    <div>
+        <label>Food :</label>
+            <select required  (change)="onTimeChanged1($event)" formControlName="foodName" #quantity>
+            <option value="" disabled selected hidden>select</option>
+            <option  *ngFor="let s of foodList" value="{{s.Calories}}">{{s.name}}</option>
+            </select>
+    </div>
+    <div>
+        <label>Time</label>
+            <select required  formControlName="foodTime" (change)="onTimeChanged2($event)" #time >
+                <option value="" disabled selected hidden>select</option>
+                <option *ngFor="let s of TimeList" value="{{s}}">{{s}}</option>
+            </select>
+   </div>
+   <div>
+        <label>Activites :</label>
+            <select required  (change)="onTimeChanged3($event)" formControlName="activitiesName" #mets >
+                <option value="" disabled selected hidden>select</option>
+                <option  *ngFor="let s of activityList" value="{{s.METs}}">{{s.ACTIVITY}}</option>
+            </select>
+   </div>
+   <div>
+        <label>Time :</label>
+            <input type="number" id="sampleInput" name="input" ng-model="sample.value" formControlName="activitiesTime"
+            placeholder="in minutes" min="0" (input)="saveRange($event)" required />
+   </div>
+<button type="submit" [disabled]="!UserFoodDetails.valid">Find Net Calories</button> 
+</form>
+
+<div><label>Calories In :</label> 
+    <span>{{carlorieIn}}</span></div>
+
+<div><label>Calories Out :</label> 
+    <span>{{caloriesOut}}</span></div>
+
+<div class= "m-net">
+    <label>Net Calories </label>
+      <span>{{netCalories}}</span>
+</div>
+<div><label>Difference between calorie In and calorie Out : </label> 
+<span>{{DiffOut}}</span></div>
+
+</div>
+
+

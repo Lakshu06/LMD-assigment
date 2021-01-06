@@ -1,0 +1,14 @@
+<div class="m-userlist">
+<table >
+         <tr  >
+          <th *ngFor= "let record of tableObj.headers">{{record}}</th>
+          
+        </tr>
+        <tr *ngFor= "let record of data">
+            <td (click)= "gotouserinfo(record._id)">{{record.name}}</td>
+            <td>{{record.sex}}</td>
+            <Td (click)="deleteuser(record._id)"><img src="../../assets/image/th.jpg" alt="" width="10" height="10" ></Td>
+          </tr> 
+</table>
+      
+

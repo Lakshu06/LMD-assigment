@@ -1,0 +1,20 @@
+
+
+
+<div class = "m-form">
+  <h3>User Form</h3>
+  <form [formGroup]="UserForm" (ngSubmit)="onSubmit()" novalidate>
+  <div><label>Name : </label><input  formControlName="name" placeholder= "full name" required /></div>
+  <div><label>Weight : </label><input   type="number" formControlName="weight" min="0" max="200" placeholder= "weight in kg" required /></div>  
+  <div><label>Height : </label><input   type="number" formControlName="height" min="0" max="300" placeholder= "height in cm" required /></div>
+  <div><label>Age : </label><input type="number" formControlName="age" min="0" max="150"  placeholder= "age" required /></div>
+  <div><label>Gender : </label><select formControlName="sex" required  >
+<option [value]="" disabled hidden selected>Select Gender</option>
+    <option *ngFor="let s of sexList" [value]="s"
+      >{{s}}</option>
+  </select></div>
+  
+  <button type="submit" [disabled]="!UserForm.valid">Create User</button> 
+     
+  </form>
+</div>
